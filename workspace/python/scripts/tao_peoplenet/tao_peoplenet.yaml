@@ -1,0 +1,73 @@
+%YAML 1.2
+# SPDX-FileCopyrightText: Copyright (c) 2024 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: MIT
+#
+# Permission is hereby granted, free of charge, to any person obtaining a
+# copy of this software and associated documentation files (the "Software"),
+# to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense,
+# and/or sell copies of the Software, and to permit persons to whom the
+# Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+---
+v4l2_source:
+  device: "/dev/video0"
+
+replayer_source:
+  basename: "people"
+  frame_rate: 0   # as specified in timestamps
+  repeat: true    # default: false
+  count: 0        # default: 0 (no frame count restriction)
+
+preprocessor:
+  in_dtype: "rgb888" # input data type for format converter
+  out_tensor_name: preprocessed
+  out_dtype: "float32"
+  resize_width: 960
+  resize_height: 544
+  scale_min: 0.0
+  scale_max: 1.0
+
+inference:
+  backend: "trt"
+  pre_processor_map:
+    "face_detect": ["preprocessed"]
+  inference_map:
+    "face_detect": ["scores", "boxes"]
+  device_map:
+    "face_detect": "0"
+  input_on_cuda: true
+  is_engine_path: false
+
+postprocessor:
+  iou_threshold: 0.15
+  score_threshold: 0.5
+  box_scale: 35.0
+  box_offset: 0.5
+  grid_height: 34
+  grid_width: 60
+
+holoviz:
+  tensors:
+    - name: ""
+      type: color
+    - name: faces
+      type: rectangles
+      opacity: 0.5
+      line_width: 4
+      color: [1.0, 0.0, 0.0, 1.0]
+    - name: person
+      type: rectangles
+      opacity: 0.5
+      line_width: 4
+      color: [0.0, 1.0, 0.0, 1.0]
