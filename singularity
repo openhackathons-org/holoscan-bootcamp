@@ -15,6 +15,7 @@ FROM: nvcr.io/nvidia/clara-holoscan/holoscan:v2.3.0-dgpu
     pip3 install jupyterlab
     apt update
     apt install --no-install-recommends -y ffmpeg
+    apt install libegl1
     ffmpeg -i /workspace/python/scripts/tao_peoplenet/data/people.mp4 -pix_fmt rgb24 -f rawvideo pipe:1 | python /opt/nvidia/holoscan/bin/convert_video_to_gxf_entities.py --directory /workspace/python/scripts/tao_peoplenet/data/ --basename people --width 1920 --height 1080 --framerate 30
 
 %runscript

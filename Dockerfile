@@ -23,18 +23,20 @@
 # To run: $ sudo docker run -it --rm --ipc=host --runtime=nvidia --gpus all --ulimit memlock=-1 --ulimit stack=67108864 -p 8888:8888 holoscan:v2.3.0-dgpu
 # Finally, open http://127.0.0.1:8888/
 
-# Select Base Image 
 FROM nvcr.io/nvidia/clara-holoscan/holoscan:v2.3.0-dgpu
 
 ARG DEBIAN_FRONTEND=noninteractive
+
+#ENV VK_LOADER_DEBUG="all"
 
 RUN pip3 install jupyterlab
 
 RUN apt update
 RUN apt install --no-install-recommends -y ffmpeg
+RUN apt install libegl1
 
 COPY workspace/ /workspace/
-#RUN curl -S -o /workspace/python/scripts/tao_peoplenet/data/resnet34_peoplenet_int8.onnx -L https://api.ngc.nvidia.com/v2/models/org/nvidia/team/tao/peoplenet/pruned_quantized_decrypted_v2.3.3/files?redirect=true&path=resnet34_peoplenet_int8.onnx
+
 RUN ffmpeg -i /workspace/python/scripts/tao_peoplenet/data/people.mp4 -pix_fmt rgb24 -f rawvideo pipe:1 | python bin/convert_video_to_gxf_entities.py --directory /workspace/python/scripts/tao_peoplenet/data/ --basename people --width 1920 --height 1080 --framerate 30
 
 
