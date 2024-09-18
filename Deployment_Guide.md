@@ -8,7 +8,7 @@ To run this tutorial, you will need a machine with NVIDIA GPU.
 
 - Install the latest [Docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker) or [Singularity](https://sylabs.io/docs/).
 
-- The base containers required for the lab may require users to create an NGC account and generate an API key (https://docs.nvidia.com/ngc/ngc-catalog-user-guide/index.html#registering-activating-ngc-account)
+- The base containers required for the lab may require users to create an NGC account and generate an [API key](https://docs.nvidia.com/ngc/ngc-catalog-user-guide/index.html#registering-activating-ngc-account)
 
 The material has been tested to be working with NVIDIA A100 GPU, please contact us if you require assistance in deploying the content.
 

@@ -38,11 +38,11 @@ The overall bootcamp will take approximately 3 hours.
 
 ## Deploying the Bootcamp materials:
 
-For deploying the materials, please refer to the Deployment guide present [here|https://github.com/openhackathons-org/holoscan-bootcamp/blob/main/Deployment_Guide.md]
+For deploying the materials, please refer to the Deployment guide present [here](https://github.com/openhackathons-org/holoscan-bootcamp/blob/main/Deployment_Guide.md)
 
 ## Attribution
 
-This material originates from the OpenHackathons Github repository. Check out additional materials [here](https://github.com/openhackathons-org)
+This material originates from the OpenHackathons Github repository. Check out additional materials [here](https://github.com/openhackathons-org).
 
 Don't forget to check out additional [Open Hackathons Resources](https://www.openhackathons.org/s/technical-resources) and join our [OpenACC and Hackathons Slack Channel](https://www.openacc.org/community#slack) to share your experience and get more help from the community.
 
