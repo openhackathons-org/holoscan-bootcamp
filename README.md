@@ -11,7 +11,7 @@ This online Bootcamp is a hands-on learning experience where attendees will be g
 
 ## Bootcamp contents:
 
-The content is structured in multiple modules covering the following: 
+The content is structured in multiple modules covering the following:
 
 - Introduction to NVIDIA Holoscan
 - Creating custom Holoscan operators
@@ -29,7 +29,7 @@ The tools and frameworks used in the bootcamp are as follows:
 
 ## Bootcamp duration:
 
-The overall bootcamp will take approximately 3 hours. 
+The overall bootcamp will take approximately 3 hours.
 
 ## Bootcamp prerequisites:
 
@@ -38,7 +38,7 @@ The overall bootcamp will take approximately 3 hours.
 
 ## Deploying the Bootcamp materials:
 
-For deploying the materials, please refer to the Deployment guide present [here|https://github.com/dleshchev/holoscan-dli-prep/blob/main/Deployment_guide.md]
+For deploying the materials, please refer to the Deployment guide present [here|https://github.com/openhackathons-org/holoscan-bootcamp/blob/main/Deployment_Guide.md]
 
 ## Attribution
 
@@ -49,13 +49,3 @@ Don't forget to check out additional [Open Hackathons Resources](https://www.ope
 ## Licensing
 
 Copyright © 2024 OpenACC-Standard.org. This material is released by OpenACC-Standard.org, in collaboration with NVIDIA Corporation, under the Creative Commons Attribution 4.0 International (CC BY 4.0). These materials may include references to hardware and software developed by other entities; all applicable licensing and copyrights apply.
-
-
-
-
-
-
-
-
-
-
