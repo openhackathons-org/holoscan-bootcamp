@@ -20,7 +20,7 @@
 # DEALINGS IN THE SOFTWARE.
 
 # To build the docker container, run: $ docker build . -t holoscan:v2.3.0-dgpu -f Dockerfile --network host
-# To run: $ sudo docker run -it --rm --ipc=host --runtime=nvidia --gpus all --ulimit memlock=-1 --ulimit stack=67108864 -p 8888:8888 holoscan:v2.3.0-dgpu
+# To run: $ docker run -it --rm --ipc=host --runtime=nvidia --gpus all --ulimit memlock=-1 --ulimit stack=67108864 -p 8888:8888 holoscan:v2.3.0-dgpu
 # Finally, open http://127.0.0.1:8888/
 
 FROM nvcr.io/nvidia/clara-holoscan/holoscan:v2.3.0-dgpu
